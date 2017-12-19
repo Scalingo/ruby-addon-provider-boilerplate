@@ -1,0 +1,31 @@
+development:
+  clients:
+    default:
+      database: scalingo_irma_development
+      hosts:
+        - <%= ENV['MONGO_HOST'] || "172.17.0.1:27017"%>
+test:
+  clients:
+    default:
+      database: scalingo_irma_test
+      hosts:
+        - <%= ENV['MONGO_HOST'] || "172.17.0.1:27017"%>
+      options:
+        mode: :primary
+        max_retries: 1
+        retry_interval: 0
+
+staging:
+  clients:
+    default:
+      uri: <%= ENV['MONGO_URL'] %>
+      options:
+        max_pool_size: 16
+
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGO_URL'] %>
+      options:
+        max_pool_size: 16
+

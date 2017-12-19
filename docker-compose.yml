@@ -1,0 +1,26 @@
+version: '2'
+services:
+  addon:
+    image: scalingo/docker-addon-service:latest
+    build: .
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - 7778:7778
+    environment:
+      PORT: 7778
+      RAILS_ENV: development
+      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.4.0/bin"
+      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.4.0"
+      BUNDLE_APP_CONFIG: "/usr/src/app/.bundle"
+      SSO_SALT: "3FFwvVd67XoF4DtfEE40ooWjWSdO2DVM"
+      MONGO_HOST: 172.17.0.1:27017
+      ETCD_HOST: http://172.17.0.1:2379
+      NSQD_HOST: 172.17.0.1
+      NSQLOOKUPD_URLS: http://172.17.0.1:4161
+      ADDON_USER: "docker"
+      ADDON_PASSWD: "docker-password"
+      SCALINGO_API_URL: "http://172.17.0.1:3001/"
+      DASHBOARD_URL: "http://172.17.0.1:4200"
+    command: bundle exec rails server -b 0.0.0.0 -p 7778 -e development
+

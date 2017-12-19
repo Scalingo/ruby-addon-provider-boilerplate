@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Scalingo Docker Addon
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      %nav
+        .nav-wrapper
+          %a.button-arrow{href: @back_url}
+            %i.material-icons arrow_back
+          .brand-logo.left
+            Back to app
+          %a.navbar-menu{:href => "http://doc.scalingo.com/", :target => "_blank", :title => "Scalingo Documentation Center"}
+            %i.material-icons.center help
+            .navbar-menu-placeholder
+          %a.navbar-menu.dropdown-button.navbar-help-menu{"data-beloworigin" => "true", "data-constrainwidth" => "false", "data-activates"=> "help-dropdown"}
+            %i.material-icons.center apps
+            .navbar-menu-placeholder
+            .dropdown-arrow
+          %ul.dropdown-content.help-dropdown#help-dropdown
+            %li
+              %a{:href => "http://cli.scalingo.com/", :target => "_blank", :title => "Scalingo Command Line Tool"}
+                %i.mdi-device-dvr.left>
+                Command Line Tool
+            %li
+              %a{:href => "http://changelog.scalingo.com/", :target => "_blank", :title => "Scalingo Changelog"}
+                %i.mdi-action-assignment.left>
+                Changelog
+            %li
+              %a{:href => "http://status.scalingo.com/", :target => "_blank", :title => "Scalingo Status"}
+                %i.mdi-action-announcement.left>
+                Status
+            %li
+              %a{:href => "http://blog.scalingo.com/", :target => "_blank", :title => "Scalingo Blog"}
+                %i.mdi-social-public.left>
+                Blog
+    %body
+      .container
+        = yield
