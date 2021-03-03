@@ -136,7 +136,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.0)
-    puma (3.10.0)
+    puma (3.12.6)
     rack (2.2.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -263,7 +263,7 @@ DEPENDENCIES
   nsq-env (~> 0.1.1)
   philae (~> 0.2.7)
   pry
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.4)
   rerun
   rollbar (~> 2.15, >= 2.15.5)
